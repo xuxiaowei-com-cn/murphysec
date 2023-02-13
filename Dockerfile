@@ -1,7 +1,7 @@
 # 第一阶段：编译 git 源码
 
 # 选择运行时基础镜像
-FROM openanolis/anolisos:8.6
+FROM maven:3.6.3-openjdk-17
 
 # 维护人员
 MAINTAINER 徐晓伟 xuxiaowei@xuxiaowei.com.cn
@@ -26,3 +26,6 @@ RUN ls
 WORKDIR /home
 
 ENV PATH=/usr/local/murphysec/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# sleep infinity：常驻内存
+CMD sleep infinity
