@@ -101,6 +101,36 @@
   </a>
 </div>
 
+## 分支
+
+- main
+    - 基于 openanolis/anolisos 镜像制作
+- maven-*
+    - 从环境变量中读取
+      ```xml
+      <!-- 含 maven 标签的镜像中的配置 -->
+      <!-- 从环境变量中读取 -->
+      <!-- /usr/share/maven/conf/settings.xml -->
+      <servers>
+          <server>
+              <id>${env.RELEASE_ID}</id>
+              <username>${env.RELEASE_USERNAME}</username>
+              <password>${env.RELEASE_PASSWORD}</password>
+          </server>
+          <server>
+              <id>${env.SNAPSHOT_ID}</id>
+              <username>${env.SNAPSHOT_USERNAME}</username>
+              <password>${env.SNAPSHOT_PASSWORD}</password>
+          </server>
+      </servers>
+      ```
+- maven-3.6.3-jdk-8
+    - 基于 maven:3.6.3-jdk-8 镜像制作
+- maven-3.6.3-openjdk-17
+    - 基于 maven:3.6.3-openjdk-17 镜像制作
+- maven-3.8.7-openjdk-18
+    - 基于 maven:3.8.7-openjdk-18 镜像制作
+
 ## 使用
 
 ```shell
