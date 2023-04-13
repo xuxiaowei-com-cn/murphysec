@@ -11,15 +11,15 @@ RUN cat /usr/share/maven/conf/settings.xml
 
 # 修改 Maven settings.xml
 RUN sed -i '/<\/servers>/i \
-    <server>\
-        <id>${env.RELEASE_ID}</id>\
-        <username>${env.RELEASE_USERNAME}</username>\
-        <password>${env.RELEASE_PASSWORD}</password>\
-    </server>\
-    <server>\
-        <id>${env.SNAPSHOT_ID}</id>\
-        <username>${env.SNAPSHOT_USERNAME}</username>\
-        <password>${env.SNAPSHOT_PASSWORD}</password>\
+\    <server>\n\
+      <id>${env.RELEASE_ID}</id>\n \
+      <username>${env.RELEASE_USERNAME}</username>\n \
+      <password>${env.RELEASE_PASSWORD}</password>\n \
+    </server>\n \
+    <server>\n \
+      <id>${env.SNAPSHOT_ID}</id>\n \
+      <username>${env.SNAPSHOT_USERNAME}</username>\n \
+      <password>${env.SNAPSHOT_PASSWORD}</password>\n \
     </server>' /usr/share/maven/conf/settings.xml
 
 # 查看修改后的 Maven settings.xml
