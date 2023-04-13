@@ -6,6 +6,25 @@ FROM maven:3.6.3-openjdk-17
 # 维护人员
 MAINTAINER 徐晓伟 xuxiaowei@xuxiaowei.com.cn
 
+# 查看原始 Maven settings.xml
+RUN cat /usr/share/maven/conf/settings.xml
+
+# 修改 Maven settings.xml
+RUN sed -i '/<\/servers>/i \
+\    <server>\n\
+      <id>${env.RELEASE_ID}</id>\n \
+      <username>${env.RELEASE_USERNAME}</username>\n \
+      <password>${env.RELEASE_PASSWORD}</password>\n \
+    </server>\n \
+    <server>\n \
+      <id>${env.SNAPSHOT_ID}</id>\n \
+      <username>${env.SNAPSHOT_USERNAME}</username>\n \
+      <password>${env.SNAPSHOT_PASSWORD}</password>\n \
+    </server>' /usr/share/maven/conf/settings.xml
+
+# 查看修改后的 Maven settings.xml
+RUN cat /usr/share/maven/conf/settings.xml
+
 # 工作空间
 WORKDIR /usr/local/murphysec/bin
 
