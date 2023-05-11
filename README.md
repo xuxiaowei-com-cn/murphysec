@@ -103,34 +103,52 @@
 
 ## 使用
 
-```
+```shell
 # 获取 Token：https://www.murphysec.com/usr/token
 murphysec auth login 填写Token
 ```
 
-```
+```shell
 # 扫描
 murphysec scan 目录
 ```
 
-```
+```shell
 # 日志等级：可以为 silent|error|warn|info|debug (默认为 "silent"， 不输出日志)
 murphysec scan 目录 --log-level debug
 ```
 
-```
+```shell
 # 日志位置
 murphysec scan 目录 --log-level debug --write-log-to /murphysec.log
 ```
 
-```
+```shell
 # JSON 输出
 murphysec scan 目录 --log-level debug --write-log-to /murphysec.log --json
 ```
 
-```
+```shell
 # 指定任务ID
 murphysec scan 目录 --log-level debug --write-log-to /murphysec.log --json --task-id 任务ID
+```
+
+```xml
+<!-- 含 maven 标签的镜像中的配置 -->
+<!-- 从环境变量中读取 -->
+<!-- /usr/share/maven/conf/settings.xml -->
+<servers>
+    <server>
+        <id>${env.RELEASE_ID}</id>
+        <username>${env.RELEASE_USERNAME}</username>
+        <password>${env.RELEASE_PASSWORD}</password>
+    </server>
+    <server>
+        <id>${env.SNAPSHOT_ID}</id>
+        <username>${env.SNAPSHOT_USERNAME}</username>
+        <password>${env.SNAPSHOT_PASSWORD}</password>
+    </server>
+</servers>
 ```
 
 ## 批量添加远端仓库地址
