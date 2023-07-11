@@ -158,11 +158,6 @@ murphysec scan 目录 --log-level debug --write-log-to /murphysec.log
 murphysec scan 目录 --log-level debug --write-log-to /murphysec.log --json
 ```
 
-```shell
-# 指定任务ID
-murphysec scan 目录 --log-level debug --write-log-to /murphysec.log --json --task-id 任务ID
-```
-
 ## 批量添加远端仓库地址
 
 <details>
